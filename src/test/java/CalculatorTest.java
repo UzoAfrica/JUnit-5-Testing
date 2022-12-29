@@ -1,10 +1,7 @@
 import org.exampleCalculatorMavenProject.Calculator;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.*;
 
 import java.util.stream.Stream;
 
@@ -74,6 +71,13 @@ public class CalculatorTest {
                 "Unexpected exception message");
     }
 
+    @ParameterizedTest
+    @ValueSource(strings= {"Victory", "Gabriel", "Justices"})
+    void valueSourceDemonstration(String firstName){
+        System.out.println(firstName);
+        assertNotNull(firstName);
+    }
+
     @DisplayName("Test integer Subtraction [minus, subtraction, expectedResult]")
     @ParameterizedTest
     //@MethodSource()
@@ -96,8 +100,3 @@ public class CalculatorTest {
 //                Arguments.of(700, 100, 600)
      //   );}
 }
-//    git init
-//    git add .
-//        git commit -m "message"
-//        git remote add origin "github.com/your_repo.git"
-//        git push -u origin master
